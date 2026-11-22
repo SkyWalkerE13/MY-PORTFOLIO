@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO & Metadata -->
+  <title>Erzhan Ikramov // Full Stack Developer & AI Automation Engineer</title>
+  <meta name="description"
+    content="Futuristic Cyberpunk Developer Portfolio of Erzhan Ikramov (Ержан Икрамов). Full Stack Developer, Software Engineer, and AI Automation Engineer building intelligent digital systems.">
+  <meta name="keywords"
+    content="Erzhan Ikramov, Ержан Икрамов, Full Stack Developer, AI Automation, Software Engineer, Python, React, Next.js, Cyberpunk Portfolio, Astana Kazakhstan">
+  <meta name="author" content="Erzhan Ikramov">
+  <meta name="theme-color" content="#04060a">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Erzhan Ikramov // Full Stack Developer & AI Automation Engineer">
+  <meta property="og:description"
+    content="Building digital experiences, intelligent systems, and software solutions that connect technology with real-world problems.">
+  <meta property="og:image" content="assets/images/hero-banner.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Erzhan Ikramov // Full Stack Developer & AI Automation Engineer">
+  <meta name="twitter:description" content="Futuristic developer command center & software engineering portfolio.">
+  <meta name="twitter:image" content="assets/images/hero-banner.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.jpg">
+
+  <!-- Google Fonts: Orbitron (Headings), Rajdhani (HUD/Subheadings), Space Grotesk (Body), Share Tech Mono (Code/Terminal) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor Stylesheets -->
+  <link rel="stylesheet" href="assets/vendor/orbit-menu/orbit-menu.css">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ========================================================================
+       1. AMBIENT CYBER LAYERS (Particles, Grid, Scanlines, Cursor)
+       ======================================================================== -->
+  <canvas id="cyber-canvas" aria-hidden="true"></canvas>
+  <div class="cyber-grid-bg" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Custom Cyber Follower Cursor (Fine Pointers Only) -->
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Scroll Progress Indicator Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ========================================================================
+       2. TERMINAL BOOT INTRO LOADER
+       ======================================================================== -->
+  <div class="terminal-loader" id="terminal-loader" role="dialog" aria-modal="true" aria-label="System Initializing">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-controls">
+          <span class="t-dot t-red"></span>
+          <span class="t-dot t-yellow"></span>
+          <span class="t-dot t-green"></span>
+        </div>
+        <div class="terminal-title">CYBER_OS // BOOT_LOADER_v4.2</div>
+        <div style="width: 40px;"></div>
+      </div>
+      <div class="terminal-body" id="terminal-logs">
+        <!-- Lines injected dynamically by js/script.js -->
+      </div>
+      <div style="padding: 0 24px 16px 24px;">
+        <div class="loader-bar-wrapper">
+          <div class="loader-bar" id="loader-bar"></div>
+        </div>
+      </div>
+      <div class="terminal-footer">
+        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">OPERATOR: ERZHAN
+          IKRAMOV // NODE: ASTANA</span>
+        <button type="button" class="skip-btn" id="skip-boot-btn">SKIP BOOT [SPACE]</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       3. NAVIGATION BAR
+       ======================================================================== -->
+  <header class="cyber-nav" id="cyber-nav">
+    <div class="nav-container">
+
+      <!-- Brand Logo -->
+      <a href="#hero" class="cyber-logo" aria-label="Erzhan Ikramov Portfolio Home">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">ERZHAN.DEV</span>
+        <span class="logo-cursor">_</span>
+        <span class="logo-bracket">]</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link active">
+          <span class="nav-link-num">00.</span><span data-i18n="nav.home">Home</span>
+        </a>
+        <a href="#about" class="nav-link">
+          <span class="nav-link-num">01.</span><span data-i18n="nav.about">About</span>
+        </a>
+        <a href="#skills" class="nav-link">
+          <span class="nav-link-num">02.</span><span data-i18n="nav.skills">Skills</span>
+        </a>
+        <a href="#projects" class="nav-link">
+          <span class="nav-link-num">03.</span><span data-i18n="nav.projects">Projects</span>
+        </a>
+        <a href="#experience" class="nav-link">
+          <span class="nav-link-num">04.</span><span data-i18n="nav.experience">Experience</span>
+        </a>
+        <a href="#contact" class="nav-link">
+          <span class="nav-link-num">05.</span><span data-i18n="nav.contact">Contact</span>
+        </a>
+      </nav>
+
+      <!-- Language Selector & System Status Group -->
+      <div style="display: flex; align-items: center; gap: 14px;">
+
+        <!-- Orbit Menu: Radial Cyber Language Dial (EN, RU, KZ, DE, JA) -->
+        <div class="orbit-lang-wrapper" title="Switch Language Protocol">
+          <div id="orbit-lang-menu" class="orbit-menu" data-sector="175" data-angle-offset="18" data-rx-offset="58"
+            data-ry-offset="88" data-close="true">
+            <button type="button" class="orbit-lang-trigger" aria-label="System Language">
+              <svg class="lang-icon-svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+              </svg>
+              <span id="current-lang-label" class="lang-code">EN</span>
+            </button>
+            <button type="button" class="orbit-lang-item active" data-action="setLangEN" data-lang="en"
+              title="English">EN</button>
+            <button type="button" class="orbit-lang-item" data-action="setLangRU" data-lang="ru"
+              title="Русский">RU</button>
+            <button type="button" class="orbit-lang-item" data-action="setLangKZ" data-lang="kz"
+              title="Қазақша">KZ</button>
+            <button type="button" class="orbit-lang-item" data-action="setLangDE" data-lang="de"
+              title="Deutsch">DE</button>
+            <button type="button" class="orbit-lang-item" data-action="setLangJA" data-lang="ja" title="日本語">JA</button>
+          </div>
+        </div>
+
+        <!-- System Telemetry Status Indicator -->
+        <div class="nav-status-pill" id="nav-status-pill" role="button" tabindex="0" title="Run System Diagnostics">
+          <span class="status-dot-pulse"></span>
+          <span data-i18n="nav.netStatus">NET: ONLINE</span>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-nav-links">
+      <a href="#hero" class="mobile-nav-link">00 // <span data-i18n="nav.home">Home</span></a>
+      <a href="#about" class="mobile-nav-link">01 // <span data-i18n="nav.about">About</span></a>
+      <a href="#skills" class="mobile-nav-link">02 // <span data-i18n="nav.skills">Skills</span></a>
+      <a href="#projects" class="mobile-nav-link">03 // <span data-i18n="nav.projects">Projects</span></a>
+      <a href="#experience" class="mobile-nav-link">04 // <span data-i18n="nav.experience">Experience</span></a>
+      <a href="#contact" class="mobile-nav-link">05 // <span data-i18n="nav.contact">Contact</span></a>
+
+      <!-- Mobile Language Switcher -->
+      <div class="mobile-lang-selector">
+        <button type="button" class="mobile-lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="mobile-lang-btn" data-lang="ru">RU</button>
+        <button type="button" class="mobile-lang-btn" data-lang="kz">KZ</button>
+        <button type="button" class="mobile-lang-btn" data-lang="de">DE</button>
+        <button type="button" class="mobile-lang-btn" data-lang="ja">JA</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ======================================================================
+         4. HERO SECTION
+         ====================================================================== -->
+    <section class="hero-section" id="hero">
+
+      <!-- Replaceable Hero Banner Background with Gradient Overlay -->
+      <div class="hero-bg-container" aria-hidden="true">
+        <img src="assets/images/hero-banner.jpg" alt="Cyberpunk Cityscape Background" class="hero-banner-img">
+        <div class="hero-gradient-overlay"></div>
+      </div>
+
+      <div class="container">
+        <div class="hero-layout">
+
+          <!-- Left Hero Content -->
+          <div class="hero-content">
+
+            <div class="hero-telemetry-badge reveal-item">
+              <span class="status-dot-pulse"></span>
+              <span data-i18n="hero.telemetry">SYS.ONLINE // ASTANA NODE // 51.1694° N, 71.4491° E</span>
+            </div>
+
+            <div class="hero-greeting reveal-item" data-i18n="hero.greeting">
+              HELLO, WORLD. I'M
+            </div>
+
+            <!-- Glitch Heading: Erzhan Ikramov -->
+            <div class="glitch-wrapper reveal-item">
+              <h1 class="hero-name glitch-text" data-i18n-glitch="hero.name" data-text="ERZHAN IKRAMOV">ERZHAN IKRAMOV
+              </h1>
+            </div>
+
+            <!-- Subtitle -->
+            <div class="hero-profession reveal-item" data-i18n="hero.profession">
+              FULL STACK DEVELOPER | AI AUTOMATION ENGINEER
+            </div>
+
+            <!-- Animated Typing Effect Container -->
+            <div class="typing-box reveal-item" aria-live="polite">
+              <span class="typing-prefix">> </span>
+              <span id="typing-text" class="typing-text">Full Stack Developer</span>
+              <span class="typing-cursor">█</span>
+            </div>
+
+            <!-- Short Introduction -->
+            <p class="hero-intro reveal-item" data-i18n="hero.intro">
+              I build digital experiences, intelligent systems, and software solutions that connect technology with
+              real-world problems.
+            </p>
+
+            <!-- Cyberpunk 2077 Glitch Buttons (Imported from cyberpunk-2077-glitch-button) -->
+            <div class="hero-cta-group reveal-item">
+
+              <!-- Glitch Button: Primary Cyan -->
+              <a href="#projects" class="cybr-btn cybr-btn-cyan" data-i18n-btn="hero.btnExplore">
+                <span class="cybr-btn__content">EXPLORE MY WORK</span><span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">EXPLORE MY WORK_</span>
+                <span aria-hidden class="cybr-btn__tag">V77</span>
+              </a>
+
+              <!-- Glitch Button: Signature Cyber Yellow -->
+              <a href="#contact" class="cybr-btn cybr-btn-yellow" data-i18n-btn="hero.btnContact">
+                <span class="cybr-btn__content">CONTACT ME</span><span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">CONTACT ME_</span>
+                <span aria-hidden class="cybr-btn__tag">R25</span>
+              </a>
+
+              <!-- Glitch Button: Neon Magenta -->
+              <a href="#about" class="cybr-btn cybr-btn-magenta" data-i18n-btn="hero.btnCv">
+                <span class="cybr-btn__content">INITIALIZE CV</span><span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">INITIALIZE CV_</span>
+                <span aria-hidden class="cybr-btn__tag">0x7E3</span>
+              </a>
+
+            </div>
+
+            <!-- Cyberpunk 2077 Night City OS HUD Console (from Screenshot 2) -->
+            <div class="night-city-hud reveal-item">
+              <div class="nc-hud-top">
+                <div class="nc-greeting-block">
+                  <span class="nc-greeting" id="nc-greeting-text">Afternoon, V</span>
+                </div>
+              </div>
+
+              <!-- Netlinks HUD Grid (Screenshot 2 Bottom-Left) -->
+              <div class="nc-netlinks-container">
+                <div class="nc-netlinks-header">
+                  <span class="nc-netlinks-title">NETLINKS</span>
+                  <span class="nc-netlinks-pill">DAILY ▾</span>
+                </div>
+                <div class="nc-netlinks-grid">
+                  <a href="https://github.com/SkyWalkerE13" target="_blank" rel="noopener noreferrer"
+                    class="nc-netlink-card">
+                    <span class="nc-netlink-icon">⚡</span>
+                    <span class="nc-netlink-label">GitHub</span>
+                  </a>
+                  <a href="https://t.me/VCR_2077" target="_blank" rel="noopener noreferrer" class="nc-netlink-card">
+                    <span class="nc-netlink-icon">📡</span>
+                    <span class="nc-netlink-label">Telegram</span>
+                  </a>
+                  <a href="https://wa.me/77000249905" target="_blank" rel="noopener noreferrer" class="nc-netlink-card">
+                    <span class="nc-netlink-icon">💬</span>
+                    <span class="nc-netlink-label">WhatsApp</span>
+                  </a>
+                  <a href="https://instagram.com/edgerunner_013" target="_blank" rel="noopener noreferrer"
+                    class="nc-netlink-card">
+                    <span class="nc-netlink-icon">📸</span>
+                    <span class="nc-netlink-label">Instagram</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Hero Visual: Holographic Profile Card & Night City Widgets -->
+          <div class="hero-visual reveal-item">
+            <div class="profile-hud-card">
+              <span class="hud-corner hud-top-left"></span>
+              <span class="hud-corner hud-top-right"></span>
+              <span class="hud-corner hud-bottom-left"></span>
+              <span class="hud-corner hud-bottom-right"></span>
+
+              <div class="profile-img-wrapper">
+                <!-- Replaceable Profile Image -->
+                <img src="assets/images/profile.jpg" alt="Erzhan Ikramov - Full Stack Developer Profile"
+                  class="profile-img">
+                <div class="scan-laser" aria-hidden="true"></div>
+              </div>
+
+              <div class="profile-meta-bar">
+                <span data-i18n="hero.profileId">ID: OPERATIVE // 0x7E3</span>
+                <span style="color: var(--neon-green);" data-i18n="hero.profileStatus">STATUS: AVAILABLE</span>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <a href="#about" class="scroll-indicator-container" aria-label="Scroll down to About section">
+          <div class="mouse-icon">
+            <div class="mouse-wheel"></div>
+          </div>
+          <span class="scroll-text" data-i18n="hero.scrollText">SCROLL TO DECRYPT</span>
+        </a>
+
+    </section>
+
+    <!-- ======================================================================
+         5. ABOUT ME SECTION
+         ====================================================================== -->
+    <section class="section-wrapper" id="about">
+      <div class="container">
+
+        <!-- Section Header -->
+        <div class="section-header reveal-item">
+          <div class="section-tag">
+            <span data-i18n="about.tag">// 01. INTEL & PROFILE</span>
+          </div>
+          <h2 class="section-title">
+            <span data-i18n="about.title">ABOUT THE ARCHITECT</span>
+            <span class="section-title-line"></span>
+          </h2>
+          <p class="section-desc" data-i18n="about.subtitle">
+            Bridging complex distributed backend architectures with immersive, high-performance interfaces and
+            autonomous AI pipelines.
+          </p>
+        </div>
+
+        <div class="about-grid">
+
+          <!-- Left Column: Biometric HUD Profile Card -->
+          <div class="about-bio-card glass-panel reveal-item">
+            <span class="hud-corner hud-top-left"></span>
+            <span class="hud-corner hud-top-right"></span>
+            <span class="hud-corner hud-bottom-left"></span>
+            <span class="hud-corner hud-bottom-right"></span>
+
+            <div class="bio-avatar-frame">
+              <img src="assets/images/profile.jpg" alt="Erzhan Ikramov" class="bio-avatar-img">
+            </div>
+
+            <div class="bio-stats-list">
+              <div class="bio-stat-item">
+                <span class="stat-key" data-i18n="about.statId">IDENTIFIER:</span>
+                <span class="stat-val" data-i18n="hero.name">ERZHAN IKRAMOV</span>
+              </div>
+              <div class="bio-stat-item">
+                <span class="stat-key" data-i18n="about.statNode">CURRENT NODE:</span>
+                <span class="stat-val" data-i18n="about.statNodeVal">ASTANA, KZ</span>
+              </div>
+              <div class="bio-stat-item">
+                <span class="stat-key" data-i18n="about.statCore">SYSTEM CORE:</span>
+                <span class="stat-val" data-i18n="about.statCoreVal">FULL STACK & AI</span>
+              </div>
+              <div class="bio-stat-item">
+                <span class="stat-key" data-i18n="about.statAvail">AVAILABILITY:</span>
+                <span class="stat-val" style="color: var(--neon-green);" data-i18n="about.statAvailVal">OPEN TO
+                  OFFERS</span>
+              </div>
+            </div>
+
+            <a href="#contact" class="cybr-btn cybr-btn-cyan" style="width: 100%; min-width: unset;"
+              data-i18n-btn="about.btnComms">
+              <span class="cybr-btn__content">INITIATE COMMS</span><span aria-hidden>_</span>
+              <span aria-hidden class="cybr-btn__glitch">INITIATE COMMS_</span>
+              <span aria-hidden class="cybr-btn__tag">TX_</span>
+            </a>
+          </div>
+
+          <!-- Right Column: Personal Narrative & Quick Info Cards -->
+          <div class="about-narrative">
+
+            <p class="narrative-p reveal-item" data-i18n="about.p1">
+              I am <strong>Erzhan Ikramov</strong>, a Full Stack Developer and AI Automation Engineer passionate about
+              engineering resilient software ecosystems, scalable backend microservices, and modern digital interfaces.
+            </p>
+
+            <p class="narrative-p reveal-item" data-i18n="about.p2">
+              My engineering background spans modern web application development, cloud-native deployments, and workflow
+              automation. I specialize in designing autonomous AI agents, orchestrating complex LLM pipelines, and
+              building mission-critical platforms that eliminate operational friction and accelerate human ingenuity.
+            </p>
+
+            <p class="narrative-p reveal-item" data-i18n="about.p3">
+              My career goals center on constructing autonomous, intelligent computing frameworks and high-load web
+              applications. When I'm not writing code or building AI pipelines, I actively investigate distributed
+              systems, robotics telemetry, and creative interactive web technologies.
+            </p>
+
+            <!-- 4 Small Information HUD Cards -->
+            <div class="about-hud-cards reveal-item">
+              <div class="info-card">
+                <div class="info-label" data-i18n="about.cardLocationLabel">LOCATION</div>
+                <div class="info-value" data-i18n="about.cardLocationVal">Astana, Kazakhstan</div>
+              </div>
+
+              <div class="info-card">
+                <div class="info-label" data-i18n="about.cardRoleLabel">PRIMARY ROLE</div>
+                <div class="info-value" data-i18n="about.cardRoleVal">Full Stack Developer</div>
+              </div>
+
+              <div class="info-card">
+                <div class="info-label" data-i18n="about.cardFocusLabel">STRATEGIC FOCUS</div>
+                <div class="info-value" data-i18n="about.cardFocusVal">AI & Automation</div>
+              </div>
+
+              <div class="info-card">
+                <div class="info-label" data-i18n="about.cardAvailLabel">CURRENT AVAILABILITY</div>
+                <div class="info-value" style="color: var(--neon-green);" data-i18n="about.cardAvailVal">Open to
+                  Opportunities</div>
+              </div>
+            </div>
+
+            <!-- Architectural Pillars -->
+            <div class="about-pillars reveal-item">
+              <div class="pillar-box">
+                <div class="pillar-title" data-i18n="about.pillar1Title">HIGH RESILIENCE</div>
+                <div class="pillar-desc" data-i18n="about.pillar1Desc">Fault-tolerant system design and clean code
+                  standards.</div>
+              </div>
+              <div class="pillar-box">
+                <div class="pillar-title" data-i18n="about.pillar2Title">NEURAL WORKFLOWS</div>
+                <div class="pillar-desc" data-i18n="about.pillar2Desc">Smart automation that reduces manual toil by up
+                  to 90%.</div>
+              </div>
+              <div class="pillar-box">
+                <div class="pillar-title" data-i18n="about.pillar3Title">FLUID UX</div>
+                <div class="pillar-desc" data-i18n="about.pillar3Desc">Cybernetic, accessible, and ultra-fast user
+                  experiences.</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. TECHNICAL SKILLS SECTION
+         ====================================================================== -->
+    <section class="section-wrapper" id="skills">
+      <div class="container">
+
+        <!-- Section Header -->
+        <div class="section-header reveal-item">
+          <div class="section-tag">
+            <span data-i18n="skills.tag">// 02. TECHNICAL MATRIX</span>
+          </div>
+          <h2 class="section-title">
+            <span data-i18n="skills.title">CORE STACK & CAPABILITIES</span>
+            <span class="section-title-line"></span>
+          </h2>
+          <p class="section-desc" data-i18n="skills.subtitle">
+            A comprehensive overview of production-tested technologies, languages, database architectures, and
+            automation suites.
+          </p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="skills-filter-nav reveal-item" role="tablist">
+          <button type="button" class="filter-btn active" data-filter="all" data-i18n="skills.filterAll">ALL
+            MODULES</button>
+          <button type="button" class="filter-btn" data-filter="frontend"
+            data-i18n="skills.filterFrontend">FRONTEND</button>
+          <button type="button" class="filter-btn" data-filter="backend"
+            data-i18n="skills.filterBackend">BACKEND</button>
+          <button type="button" class="filter-btn" data-filter="database"
+            data-i18n="skills.filterDatabase">DATABASE</button>
+          <button type="button" class="filter-btn" data-filter="tools" data-i18n="skills.filterTools">TOOLS</button>
+          <button type="button" class="filter-btn" data-filter="ai" data-i18n="skills.filterAi">AI & AUTOMATION</button>
+        </div>
+
+        <!-- Skill Category Cards Grid -->
+        <div class="skills-categories-grid">
+
+          <!-- 1. Frontend -->
+          <div class="skill-category-card glass-panel reveal-item" data-cat="frontend">
+            <div class="category-header">
+              <div class="category-name">
+                <span class="category-icon">⚡</span>
+                <span data-i18n="skills.filterFrontend">FRONTEND</span>
+              </div>
+              <span class="category-tag" data-i18n="skills.tagFrontend">UI / UX / CLIENT</span>
+            </div>
+            <div class="skills-chip-container">
+              <span class="skill-chip"><span class="chip-dot"></span>HTML5</span>
+              <span class="skill-chip"><span class="chip-dot"></span>CSS3</span>
+              <span class="skill-chip"><span class="chip-dot"></span>JavaScript</span>
+              <span class="skill-chip"><span class="chip-dot"></span>React</span>
+              <span class="skill-chip"><span class="chip-dot"></span>Next.js</span>
+              <span class="skill-chip"><span class="chip-dot"></span>TypeScript</span>
+            </div>
+          </div>
+
+          <!-- 2. Backend -->
+          <div class="skill-category-card glass-panel reveal-item" data-cat="backend">
+            <div class="category-header">
+              <div class="category-name">
+                <span class="category-icon" style="color: var(--neon-pink);">⚙️</span>
+                <span data-i18n="skills.filterBackend">BACKEND</span>
+              </div>
+              <span class="category-tag" style="color: var(--neon-pink);" data-i18n="skills.tagBackend">APIS /
+                SERVICES</span>
+            </div>
+            <div class="skills-chip-container">
+              <span class="skill-chip"><span class="chip-dot"></span>Python</span>
+              <span class="skill-chip"><span class="chip-dot"></span>Node.js</span>
+              <span class="skill-chip"><span class="chip-dot"></span>Flask</span>
+              <span class="skill-chip"><span class="chip-dot"></span>Django</span>
+              <span class="skill-chip"><span class="chip-dot"></span>REST APIs</span>
+            </div>
+          </div>
+
+          <!-- 3. Database -->
+          <div class="skill-category-card glass-panel reveal-item" data-cat="database">
+            <div class="category-header">
+              <div class="category-name">
+                <span class="category-icon" style="color: var(--neon-purple);">🗄️</span>
+                <span data-i18n="skills.filterDatabase">DATABASE</span>
+              </div>
+              <span class="category-tag" style="color: var(--neon-purple);" data-i18n="skills.tagDatabase">PERSISTENCE /
+                STORAGE</span>
+            </div>
+            <div class="skills-chip-container">
+              <span class="skill-chip"><span class="chip-dot"></span>PostgreSQL</span>
+              <span class="skill-chip"><span class="chip-dot"></span>MySQL</span>
+              <span class="skill-chip"><span class="chip-dot"></span>MongoDB</span>
+            </div>
+          </div>
+
+          <!-- 4. Tools -->
+          <div class="skill-category-card glass-panel reveal-item" data-cat="tools">
+            <div class="category-header">
+              <div class="category-name">
+                <span class="category-icon" style="color: var(--neon-yellow);">🛠️</span>
+                <span data-i18n="skills.filterTools">TOOLS</span>
+              </div>
+              <span class="category-tag" style="color: var(--neon-yellow);" data-i18n="skills.tagTools">DEVOPS /
+                WORKFLOW</span>
+            </div>
+            <div class="skills-chip-container">
+              <span class="skill-chip"><span class="chip-dot"></span>Git</span>
+              <span class="skill-chip"><span class="chip-dot"></span>GitHub</span>
+              <span class="skill-chip"><span class="chip-dot"></span>Docker</span>
+              <span class="skill-chip"><span class="chip-dot"></span>VS Code</span>
+              <span class="skill-chip"><span class="chip-dot"></span>n8n</span>
+            </div>
+          </div>
+
+          <!-- 5. AI & Automation -->
+          <div class="skill-category-card glass-panel reveal-item" data-cat="ai">
+            <div class="category-header">
+              <div class="category-name">
+                <span class="category-icon" style="color: var(--neon-green);">🧠</span>
+                <span data-i18n="skills.filterAi">AI & AUTOMATION</span>
+              </div>
+              <span class="category-tag" style="color: var(--neon-green);" data-i18n="skills.tagAi">NEURAL /
+                INTELLIGENCE</span>
+            </div>
+            <div class="skills-chip-container">
+              <span class="skill-chip"><span class="chip-dot"></span>AI Agents</span>
+              <span class="skill-chip"><span class="chip-dot"></span>Workflow Automation</span>
+              <span class="skill-chip"><span class="chip-dot"></span>API Integration</span>
+              <span class="skill-chip"><span class="chip-dot"></span>LLM Applications</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. PROJECTS PORTFOLIO SECTION
+         ====================================================================== -->
+    <section class="section-wrapper" id="projects">
+      <div class="container">
+
+        <!-- Section Header -->
+        <div class="section-header reveal-item">
+          <div class="section-tag">
+            <span data-i18n="projects.tag">// 03. MISSION DIRECTIVES</span>
+          </div>
+          <h2 class="section-title">
+            <span data-i18n="projects.title">PROJECTS PORTFOLIO</span>
+            <span class="section-title-line"></span>
+          </h2>
+          <p class="section-desc" data-i18n="projects.subtitle">
+            Production deployments, intelligent systems, and scalable applications engineered with modern web and AI
+            frameworks.
+          </p>
+        </div>
+
+        <!-- 4 Editable Project Cards Grid -->
+        <div class="projects-grid">
+
+          <!-- PROJECT 01 — COBOT MANAGEMENT CRM -->
+          <article class="project-card reveal-item">
+            <div class="project-image-box">
+              <img src="assets/images/projects/project-01.jpg" alt="Cobot Management CRM Preview" class="project-img">
+              <div class="project-overlay"></div>
+              <span class="project-badge-id">PRJ_SYS // #01</span>
+              <span class="project-status-tag" data-i18n="projects.statusProd">PRODUCTION</span>
+            </div>
+
+            <div class="project-info">
+              <h3 class="project-title" data-i18n="projects.p1Title">PROJECT 01 — COBOT MANAGEMENT CRM</h3>
+              <p class="project-desc" data-i18n="projects.p1Desc">
+                A management platform for collaborative robotics, customer management, and maintenance tracking.
+                Features real-time IoT telemetry, service scheduling, and diagnostics dashboards.
+              </p>
+
+              <div class="project-tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">Docker</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/Sky" target="_blank" rel="noopener noreferrer"
+                  class="project-btn project-btn-outline" data-i18n="projects.btnGithub">
+                  GITHUB REPO
+                </a>
+                <a href="https://demo.example.com/cobot-crm" target="_blank" rel="noopener noreferrer"
+                  class="project-btn project-btn-primary" data-i18n="projects.btnLive">
+                  LIVE DEMO
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 02 — OPEN HYPE E-COMMERCE -->
+          <article class="project-card reveal-item">
+            <div class="project-image-box">
+              <img src="assets/images/projects/project-02.jpg" alt="Open Hype E-Commerce Preview" class="project-img">
+              <div class="project-overlay"></div>
+              <span class="project-badge-id">PRJ_SYS // #02</span>
+              <span class="project-status-tag" style="border-color: var(--neon-cyan); color: var(--neon-cyan);"
+                data-i18n="projects.statusLive">LIVE SYSTEM</span>
+            </div>
+
+            <div class="project-info">
+              <h3 class="project-title" data-i18n="projects.p2Title">PROJECT 02 — OPEN HYPE E-COMMERCE</h3>
+              <p class="project-desc" data-i18n="projects.p2Desc">
+                An e-commerce platform with product catalogs, inventory management, and online ordering. Built for
+                high-throughput transactions with resilient checkout flows and responsive interfaces.
+              </p>
+
+              <div class="project-tech-stack">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">Docker</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/SkyWalkerE13" target="_blank" rel="noopener noreferrer"
+                  class="project-btn project-btn-outline" data-i18n="projects.btnGithub">
+                  GITHUB REPO
+                </a>
+                <a href="https://demo.example.com/open-hype" target="_blank" rel="noopener noreferrer"
+                  class="project-btn project-btn-primary" data-i18n="projects.btnLive">
+                  LIVE DEMO
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 03 — AI AUTOMATION SYSTEM -->
+          <article class="project-card reveal-item">
+            <div class="project-image-box">
+              <img src="assets/images/projects/project-03.jpg" alt="AI Automation System Preview" class="project-img">
+              <div class="project-overlay"></div>
+              <span class="project-badge-id">PRJ_SYS // #03</span>
+              <span class="project-status-tag" style="border-color: var(--neon-green); color: var(--neon-green);"
+                data-i18n="projects.statusAuto">AUTONOMOUS</span>
+            </div>
+
+            <div class="project-info">
+              <h3 class="project-title" data-i18n="projects.p3Title">PROJECT 03 — AI AUTOMATION SYSTEM</h3>
+              <p class="project-desc" data-i18n="projects.p3Desc">
+                An AI-powered automation solution for business workflows. Integrates autonomous multi-agent reasoning,
+                document extraction, vector indexing, and automated webhook triggers.
+              </p>
+
+              <div class="project-tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">LLM Applications</span>
+                <span class="tech-tag">AI Agents</span>
+                <span class="tech-tag">n8n</span>
+                <span class="tech-tag">API Integration</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/SkyWalkerE13" target="_blank" rel="noopener noreferrer"
+                  class="project-btn project-btn-outline" data-i18n="projects.btnGithub">
+                  GITHUB REPO
+                </a>
+                <a href="https://demo.example.com/ai-automation" target="_blank" rel="noopener noreferrer"
+                  class="project-btn project-btn-primary" data-i18n="projects.btnLive">
+                  LIVE DEMO
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 04 — PERSONAL SOFTWARE PROJECT -->
+          <article class="project-card reveal-item">
+            <div class="project-image-box">
+              <img src="assets/images/projects/project-04.jpg" alt="Personal Software Project Preview"
+                class="project-img">
+              <div class="project-overlay"></div>
+              <span class="project-badge-id">PRJ_SYS // #04</span>
+              <span class="project-status-tag" style="border-color: var(--neon-purple); color: var(--neon-purple);"
+                data-i18n="projects.statusExp">EXPERIMENTAL</span>
+            </div>
+
+            <div class="project-info">
+              <h3 class="project-title" data-i18n="projects.p4Title">PROJECT 04 — PERSONAL SOFTWARE PROJECT</h3>
+              <p class="project-desc" data-i18n="projects.p4Desc">
+                A placeholder for an additional application. Features high-concurrency microservices, modular data
+                synchronization, and developer telemetry tooling.
+              </p>
+
+              <div class="project-tech-stack">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">REST APIs</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/YOUR_USERNAME/personal-software-project" target="_blank"
+                  rel="noopener noreferrer" class="project-btn project-btn-outline" data-i18n="projects.btnGithub">
+                  GITHUB REPO
+                </a>
+                <a href="https://demo.example.com/personal-project" target="_blank" rel="noopener noreferrer"
+                  class="project-btn project-btn-primary" data-i18n="projects.btnLive">
+                  LIVE DEMO
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         8. EXPERIENCE / EDUCATION SECTION
+         ====================================================================== -->
+    <section class="section-wrapper" id="experience">
+      <div class="container">
+
+        <!-- Section Header -->
+        <div class="section-header reveal-item">
+          <div class="section-tag">
+            <span data-i18n="experience.tag">// 04. CHRONOLOGY & PROTOCOLS</span>
+          </div>
+          <h2 class="section-title">
+            <span data-i18n="experience.title">EXPERIENCE & EDUCATION</span>
+            <span class="section-title-line"></span>
+          </h2>
+          <p class="section-desc" data-i18n="experience.subtitle">
+            A vertical track of professional roles, technical achievements, academic milestones, and certifications.
+          </p>
+        </div>
+
+        <!-- View Switcher Tabs -->
+        <div class="timeline-tabs reveal-item">
+          <button type="button" class="tab-btn active" data-tab="timeline-experience"
+            data-i18n="experience.tabWork">WORK CHRONOLOGY</button>
+          <button type="button" class="tab-btn" data-tab="timeline-education" data-i18n="experience.tabEdu">EDUCATION &
+            CERTS</button>
+        </div>
+
+        <!-- VIEW 1: WORK CHRONOLOGY -->
+        <div class="timeline-view active" id="timeline-experience">
+          <div class="timeline-track">
+
+            <!-- Experience Item 1 -->
+            <div class="timeline-item reveal-item">
+              <div class="timeline-node"></div>
+              <div class="timeline-card glass-panel">
+                <div class="timeline-meta">
+                  <span class="timeline-period" data-i18n="experience.period1">2024 — PRESENT</span>
+                  <span class="timeline-company" data-i18n="experience.company1">[COMPANY NAME / TECH LAB]</span>
+                </div>
+                <h3 class="timeline-role" data-i18n="experience.role1">Lead Full Stack & AI Automation Developer</h3>
+                <ul class="timeline-list">
+                  <li class="timeline-list-item" data-i18n="experience.resp1_1">Architected and deployed enterprise
+                    microservices and collaborative robotics telemetry platforms.</li>
+                  <li class="timeline-list-item" data-i18n="experience.resp1_2">Integrated LLM-based autonomous agent
+                    networks with n8n, saving 30+ engineering hours per week.</li>
+                  <li class="timeline-list-item" data-i18n="experience.resp1_3">Designed responsive high-frequency
+                    dashboards with real-time WebSocket state management.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Experience Item 2 -->
+            <div class="timeline-item reveal-item">
+              <div class="timeline-node"></div>
+              <div class="timeline-card glass-panel">
+                <div class="timeline-meta">
+                  <span class="timeline-period" data-i18n="experience.period2">2022 — 2024</span>
+                  <span class="timeline-company" data-i18n="experience.company2">[SOFTWARE STUDIO / ENTERPRISE]</span>
+                </div>
+                <h3 class="timeline-role" data-i18n="experience.role2">Full Stack Software Engineer</h3>
+                <ul class="timeline-list">
+                  <li class="timeline-list-item" data-i18n="experience.resp2_1">Engineered scalable web applications
+                    using TypeScript, Next.js, Python, and PostgreSQL.</li>
+                  <li class="timeline-list-item" data-i18n="experience.resp2_2">Streamlined Docker container workflows
+                    and CI/CD automated deployment pipelines.</li>
+                  <li class="timeline-list-item" data-i18n="experience.resp2_3">Implemented secure token-based
+                    authentication and role-based access control (RBAC).</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Experience Item 3 -->
+            <div class="timeline-item reveal-item">
+              <div class="timeline-node"></div>
+              <div class="timeline-card glass-panel">
+                <div class="timeline-meta">
+                  <span class="timeline-period" data-i18n="experience.period3">2021 — 2022</span>
+                  <span class="timeline-company" data-i18n="experience.company3">[DIGITAL VENTURES / STARTUP]</span>
+                </div>
+                <h3 class="timeline-role" data-i18n="experience.role3">Junior Software Developer</h3>
+                <ul class="timeline-list">
+                  <li class="timeline-list-item" data-i18n="experience.resp3_1">Developed RESTful API endpoints and
+                    integrated relational database schemas with PostgreSQL & MySQL.</li>
+                  <li class="timeline-list-item" data-i18n="experience.resp3_2">Collaborated with UX/UI design teams to
+                    build pixel-perfect responsive web components.</li>
+                  <li class="timeline-list-item" data-i18n="experience.resp3_3">Authored comprehensive automated unit
+                    tests and API integration suites.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- VIEW 2: EDUCATION & CERTIFICATIONS -->
+        <div class="timeline-view" id="timeline-education">
+          <div class="timeline-track">
+
+            <!-- Education Item 1 -->
+            <div class="timeline-item reveal-item">
+              <div class="timeline-node"></div>
+              <div class="timeline-card glass-panel">
+                <div class="timeline-meta">
+                  <span class="timeline-period" data-i18n="experience.edu1Period">2018 — 2022</span>
+                  <span class="timeline-company" data-i18n="experience.edu1Org">[UNIVERSITY / INSTITUTION NAME]</span>
+                </div>
+                <h3 class="timeline-role" data-i18n="experience.edu1Role">B.S. in Computer Science / Software
+                  Engineering</h3>
+                <ul class="timeline-list">
+                  <li class="timeline-list-item" data-i18n="experience.edu1_1">Graduated with honors; specialized in
+                    Algorithms, Distributed Systems, and Database Architectures.</li>
+                  <li class="timeline-list-item" data-i18n="experience.edu1_2">Capstone Project: Autonomous Telemetry
+                    Monitoring System for Embedded Controllers.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Certification Item 1 -->
+            <div class="timeline-item reveal-item">
+              <div class="timeline-node"></div>
+              <div class="timeline-card glass-panel">
+                <div class="timeline-meta">
+                  <span class="timeline-period" data-i18n="experience.cert1Period">CERTIFICATION</span>
+                  <span class="timeline-company" data-i18n="experience.cert1Org">AI & AUTOMATION SPECIALIST</span>
+                </div>
+                <h3 class="timeline-role" data-i18n="experience.cert1Role">Generative AI & Autonomous Agent Architecture
+                </h3>
+                <ul class="timeline-list">
+                  <li class="timeline-list-item" data-i18n="experience.cert1_1">Advanced credential in multi-agent
+                    orchestration, function calling, and vector search retrieval.</li>
+                  <li class="timeline-list-item" data-i18n="experience.cert1_2">Practical certification in enterprise
+                    n8n workflow integrations and API resilience.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Certification Item 2 -->
+            <div class="timeline-item reveal-item">
+              <div class="timeline-node"></div>
+              <div class="timeline-card glass-panel">
+                <div class="timeline-meta">
+                  <span class="timeline-period" data-i18n="experience.cert2Period">CERTIFICATION</span>
+                  <span class="timeline-company" data-i18n="experience.cert2Org">CLOUD & CONTAINERS</span>
+                </div>
+                <h3 class="timeline-role" data-i18n="experience.cert2Role">Docker & Cloud-Native Architecture</h3>
+                <ul class="timeline-list">
+                  <li class="timeline-list-item" data-i18n="experience.cert2_1">Comprehensive credential in
+                    containerization, multi-stage builds, and microservices clustering.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         9. CONTACT SECTION
+         ====================================================================== -->
+    <section class="section-wrapper" id="contact">
+      <div class="container">
+
+        <!-- Section Header -->
+        <div class="section-header reveal-item">
+          <div class="section-tag">
+            <span data-i18n="contact.tag">// 05. TRANSMISSION PROTOCOL</span>
+          </div>
+          <h2 class="section-title">
+            <span data-i18n="contact.title">ESTABLISH SECURE LINK</span>
+            <span class="section-title-line"></span>
+          </h2>
+          <p class="section-desc" data-i18n="contact.subtitle">
+            Direct communication frequency for project inquiries, technical collaborations, and full-time engineering
+            opportunities.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <!-- Left Column: Comms Channels Info -->
+          <div class="contact-comms-card glass-panel reveal-item">
+            <h3 class="comms-title" data-i18n="contact.commsTitle">COMMUNICATION FREQUENCIES</h3>
+
+            <div class="comms-channels">
+              <div class="channel-item">
+                <div class="channel-icon">✉</div>
+                <div>
+                  <div class="channel-label" data-i18n="contact.labelInbox">DIRECT INBOX</div>
+                  <a href="mailto:erzhan.ikramov@Gmail.com" class="channel-value email-link" id="channel-email-val"
+                    target="_blank" rel="noopener noreferrer">erzhan.ikramov@Gmail.com</a>
+                </div>
+              </div>
+
+              <div class="channel-item">
+                <div class="channel-icon">📍</div>
+                <div>
+                  <div class="channel-label" data-i18n="contact.labelLocation">PHYSICAL NODE</div>
+                  <div class="channel-value" data-i18n="contact.valLocation">Astana, Kazakhstan</div>
+                </div>
+              </div>
+
+              <div class="channel-item">
+                <div class="channel-icon">📡</div>
+                <div>
+                  <div class="channel-label" data-i18n="contact.labelStatus">AVAILABILITY STATUS</div>
+                  <div class="channel-value" style="color: var(--neon-green);" data-i18n="contact.valStatus">Accepting
+                    New Directives</div>
+                </div>
+              </div>
+
+              <div class="channel-item">
+                <div class="channel-icon">🔒</div>
+                <div>
+                  <div class="channel-label" data-i18n="contact.labelSec">SECURITY PROTOCOL</div>
+                  <div class="channel-value" data-i18n="contact.valSec">TLS 1.3 // PGP Verified</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim); line-height: 1.6; border-top: 1px dashed rgba(255, 255, 255, 0.1); padding-top: 14px;"
+              data-i18n="contact.latency">
+              RESPONSE LATENCY: TYPICALLY &lt; 24 HOURS // TIME ZONE: UTC+5 (ASTANA)
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Terminal Contact Form -->
+          <div class="contact-form-panel glass-panel reveal-item">
+            <div class="form-terminal-bar">
+              <div class="terminal-controls">
+                <span class="t-dot t-red"></span>
+                <span class="t-dot t-yellow"></span>
+                <span class="t-dot t-green"></span>
+              </div>
+              <span class="terminal-mode" data-i18n="contact.terminalReady">TERMINAL // INPUT_READY</span>
+            </div>
+
+            <form id="cyber-contact-form" class="cyber-form" novalidate>
+
+              <!-- Name Field -->
+              <div class="form-group">
+                <label for="contact-name" class="form-label" data-i18n="contact.nameLabel">OPERATOR IDENTIFIER [YOUR
+                  NAME] *</label>
+                <input type="text" id="contact-name" name="name" class="form-input"
+                  data-i18n-placeholder="contact.namePlaceholder" placeholder="e.g. Elena Rostova" required>
+                <span class="field-error" data-i18n="contact.errName">Please provide a valid operator identifier.</span>
+              </div>
+
+              <!-- Email Field -->
+              <div class="form-group">
+                <label for="contact-email" class="form-label" data-i18n="contact.emailLabel">RETURN FREQUENCY [EMAIL
+                  ADDRESS] *</label>
+                <input type="email" id="contact-email" name="email" class="form-input"
+                  data-i18n-placeholder="contact.emailPlaceholder" placeholder="e.g. operator@domain.com" required>
+                <span class="field-error" data-i18n="contact.errEmail">Please enter a valid transmission email
+                  address.</span>
+              </div>
+
+              <!-- Subject Field -->
+              <div class="form-group">
+                <label for="contact-subject" class="form-label" data-i18n="contact.subjectLabel">PACKET HEADER [SUBJECT]
+                  *</label>
+                <input type="text" id="contact-subject" name="subject" class="form-input"
+                  data-i18n-placeholder="contact.subjectPlaceholder" placeholder="e.g. Software Engineering Opportunity"
+                  required>
+                <span class="field-error" data-i18n="contact.errSubject">Please designate a transmission subject.</span>
+              </div>
+
+              <!-- Message Field -->
+              <div class="form-group">
+                <label for="contact-message" class="form-label" data-i18n="contact.messageLabel">PAYLOAD DATA [MESSAGE]
+                  *</label>
+                <textarea id="contact-message" name="message" class="form-textarea"
+                  data-i18n-placeholder="contact.messagePlaceholder"
+                  placeholder="Detail project parameters, requirements, or inquiry..." required></textarea>
+                <span class="field-error" data-i18n="contact.errMessage">Payload message must contain at least 10
+                  characters.</span>
+              </div>
+
+              <!-- Status Banner Feedback -->
+              <div class="form-status-banner" id="form-status-banner"></div>
+
+              <!-- Cyberpunk Glitch Submit Button -->
+              <button type="submit" class="cybr-btn cybr-btn-cyan" style="width: 100%; min-width: unset;"
+                data-i18n-btn="contact.btnSubmit">
+                <span class="cybr-btn__content">TRANSMIT PACKET</span><span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">TRANSMIT PACKET_</span>
+                <span aria-hidden class="cybr-btn__tag">SEND_</span>
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       10. FOOTER & SOCIAL MEDIA MATRIX
+       ======================================================================== -->
+  <footer class="cyber-footer">
+    <div class="footer-neon-divider"></div>
+
+    <div class="container">
+      <div class="footer-content">
+
+        <!-- Brand & Tagline -->
+        <div class="footer-brand">
+          <a href="#hero" class="cyber-logo">
+            <span class="logo-bracket">[</span>
+            <span class="logo-text">YE.DEV</span>
+            <span class="logo-cursor">_</span>
+            <span class="logo-bracket">]</span>
+          </a>
+          <p class="footer-tagline" data-i18n="footer.tagline">
+            ARCHITECTING INTELLIGENT EXPERIENCES FOR THE DIGITAL FRONTIER
+          </p>
+        </div>
+
+        <!-- Social Media Icons (Configured dynamically in js/script.js) -->
+        <div class="social-links-grid" aria-label="Social Media Links">
+
+          <!-- 1. WhatsApp -->
+          <a href="https://wa.me/77000249905" id="social-whatsapp" class="social-link-btn" aria-label="WhatsApp"
+            target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.57 4.186 1.564 5.938l-1.564 5.719 5.873-1.541c1.707.935 3.669 1.47 5.753 1.47 6.627 0 12-5.373 12-12s-5.373-12-12-12z" />
+            </svg>
+          </a>
+
+          <!-- 2. Instagram -->
+          <a href="https://instagram.com/YOUR_USERNAME" id="social-instagram" class="social-link-btn"
+            aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+
+          <!-- 3. X (Twitter) -->
+          <a href="https://x.com/SkyWalkerIZER" id="social-x" class="social-link-btn" aria-label="X (Twitter)"
+            target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+
+          <!-- 4. Telegram -->
+          <a href="https://t.me/VCR_2077" id="social-telegram" class="social-link-btn" aria-label="Telegram"
+            target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+            </svg>
+          </a>
+
+          <!-- 5. GitHub -->
+          <a href="https://github.com/SkyWalkerE13" id="social-github" class="social-link-btn" aria-label="GitHub"
+            target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+          </a>
+
+        </div>
+
+        <!-- Footer Bottom Bar -->
+        <div class="footer-bottom">
+          <div>
+            <span data-i18n="footer.copyright">© 2026 ERZHAN IKRAMOV. ALL RIGHTS RESERVED.</span>
+          </div>
+          <button type="button" class="back-to-top-btn" id="back-to-top-btn" aria-label="Return to top of page">
+            <span data-i18n="footer.backToTop">BACK TO TOP</span>
+            <span>▲</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vendor Scripts -->
+  <script src="assets/vendor/cyber-toast/CyberToast.js"></script>
+  <script src="assets/vendor/orbit-menu/orbit-menu.umd.js"></script>
+
+  <!-- i18n Dictionary Engine -->
+  <script src="js/i18n.js"></script>
+
+  <!-- Core JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>

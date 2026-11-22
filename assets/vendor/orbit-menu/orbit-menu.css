@@ -1,0 +1,23 @@
+.orbit-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.orbit-menu > :nth-child(n+2) {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translate(0, 0);
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    visibility 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+.orbit-menu > :nth-child(n+2).show {
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+}
